@@ -1,0 +1,11 @@
+package domainPackage;
+
+public class Address {
+	
+	public String country;
+	public String provinceState;
+	public String postalCode;
+	public String street;
+	public String houseBuilding;
+	
+}
