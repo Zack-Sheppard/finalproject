@@ -10,9 +10,6 @@ public class Driver {
 		
 		// Pull up GUI first
 		
-		Person p = new Person();
-		p.login();
-		
 	}
 	
 }

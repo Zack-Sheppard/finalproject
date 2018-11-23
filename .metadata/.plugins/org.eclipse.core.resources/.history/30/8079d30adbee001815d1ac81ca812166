@@ -1,0 +1,11 @@
+package domainPackage;
+
+public class Login {
+	
+	static Login instance;
+
+	private Login() {
+		
+	}
+	
+}

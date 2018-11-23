@@ -9,9 +9,7 @@ public class Driver {
 		// Login probably first thing
 		
 		// Pull up GUI first
-		
 		Person p = new Person();
-		p.login();
 		
 	}
 	

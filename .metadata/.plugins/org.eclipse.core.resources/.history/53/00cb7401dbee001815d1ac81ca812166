@@ -1,0 +1,9 @@
+package domainPackage;
+
+public class Login {
+
+	private Login() {
+		
+	}
+	
+}

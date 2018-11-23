@@ -7,14 +7,9 @@ public class Person {
 	public String email;
 	public Address address;
 	
-	// Don't even think we need:
-	//private String username;
-	//private String password;
-	
+	private String username;
+	private String password;
 	
 	// Login functionality
-	public void login() {
-		
-	}
 	
 }
