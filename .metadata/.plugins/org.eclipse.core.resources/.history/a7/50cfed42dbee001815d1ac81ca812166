@@ -2,8 +2,6 @@ package domainPackage;
 
 public class Address {
 	
-	// throws AddressException
-	
 	public String country;
 	public String provinceState;
 	public String postalCode;
