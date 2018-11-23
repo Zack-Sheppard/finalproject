@@ -7,4 +7,6 @@ public class Person {
 	public String email;
 	public Address address;
 	
+	// Login functionality
+	
 }
