@@ -1,0 +1,7 @@
+package domainPackage;
+
+public class Buyer extends Person {
+
+	// Date joined? Not too much
+	
+}

@@ -1,0 +1,5 @@
+package domainPackage;
+
+public class RegisteredBuyer extends Buyer {
+
+}

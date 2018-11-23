@@ -1,0 +1,5 @@
+package domainPackage;
+
+public class OrdinaryBuyer extends Buyer {
+
+}
