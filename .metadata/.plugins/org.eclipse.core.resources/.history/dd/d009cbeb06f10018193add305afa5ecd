@@ -1,0 +1,83 @@
+package presentationPackage;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JTextArea;
+import javax.swing.JLabel;
+import javax.swing.JScrollBar;
+
+public class GuestGUI {
+
+	private JFrame frame;
+
+	/**
+	 * Create the application.
+	 */
+	public GuestGUI() {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					initialize();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 609, 471);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JButton btnSearch = new JButton("Search");
+		btnSearch.setBounds(54, 84, 97, 25);
+		frame.getContentPane().add(btnSearch);
+		
+		JButton btnRegister = new JButton("Register");
+		btnRegister.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnRegister.setBounds(184, 13, 97, 25);
+		frame.getContentPane().add(btnRegister);
+		
+		JButton btnAddToCart = new JButton("Add to Cart");
+		btnAddToCart.setBounds(54, 331, 97, 25);
+		frame.getContentPane().add(btnAddToCart);
+		
+		JButton btnRemoveFromCart = new JButton("Remove from Cart");
+		btnRemoveFromCart.setBounds(224, 331, 137, 25);
+		frame.getContentPane().add(btnRemoveFromCart);
+		
+		JButton btnPlaceOrder = new JButton("Place Order");
+		btnPlaceOrder.setBounds(432, 331, 106, 25);
+		frame.getContentPane().add(btnPlaceOrder);
+		
+		JLabel lblCart = new JLabel("Shopping Cart");
+		lblCart.setBounds(54, 202, 97, 16);
+		frame.getContentPane().add(lblCart);
+		
+		JTextArea textArea_1 = new JTextArea();
+		textArea_1.setBounds(54, 220, 484, 83);
+		frame.getContentPane().add(textArea_1);
+		
+		JButton btnPromotions = new JButton("Promotions");
+		btnPromotions.setBounds(305, 13, 97, 25);
+		frame.getContentPane().add(btnPromotions);
+		
+		JTextArea textArea = new JTextArea();
+		textArea.setBounds(163, 85, 375, 89);
+		frame.getContentPane().add(textArea);
+	}
+}

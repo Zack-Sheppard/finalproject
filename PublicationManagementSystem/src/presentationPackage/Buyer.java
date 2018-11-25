@@ -11,7 +11,14 @@ public class Buyer extends Person {
     public Connection jdbc_connection;
     public Statement statement;
     private ShoppingCart cart;
+    
+    public Buyer() {
+    	
+    }
 
+    public Buyer(String u) {
+    	super(u);
+    }
 
     public ResultSet searchDocumentbyTitle(String title){
             String sql = "SELECT * FROM Documents WHERE TITLE="+ title;

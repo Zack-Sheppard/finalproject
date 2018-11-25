@@ -26,7 +26,7 @@ public class Driver {
 	}
 	
 	public char validateLogin(String u, String p) {
-		String sql = "SELECT * FROM " + userTable + " WHERE ID='" + u + "'";
+		String sql = "SELECT * FROM " + userTable + " WHERE USERNAME='" + u + "'";
 		ResultSet user;
 		try {
 			pStatement = conn.prepareStatement(sql);
@@ -49,7 +49,18 @@ public class Driver {
 		return ' ';								// User not found
 	}
 	
-	
+	public void register(String u, String p) {
+		String sql = "INSERT INTO " + userTable + " (username,password,personType)" +
+				" VALUES ( '" + u + "', '" + p + "', '" + 'B' + "');";
+		try{
+			pStatement = conn.prepareStatement(sql);
+			pStatement.executeUpdate(sql);
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+	}
 	
 	
 }

@@ -55,7 +55,7 @@ public class LoginGUI {
 		textField.setColumns(10);
 		
 		JLabel lblPassword = new JLabel("Password");
-		lblPassword.setBounds(143, 95, 56, 16);
+		lblPassword.setBounds(143, 95, 67, 16);
 		frame.getContentPane().add(lblPassword);
 		
 		textField_1 = new JTextField();
