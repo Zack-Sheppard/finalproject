@@ -8,10 +8,11 @@ public class Document {
     private String title;
     private boolean onSale;
     private double price;
-    private ArrayList<Author> authors;
+    private Author author;
     private String type;
     private String genre;
     private String publisher;
+    private int quantity;
 
     public Document(int id, String title, String type, String genre, double price, String publisher){
         this.id=id;
@@ -41,9 +42,8 @@ public class Document {
     }
 
 
-
-    public ArrayList<Author> getAuthors() {
-        return authors;
+    public Author getAuthor() {
+        return author;
     }
 
     public double getPrice() {
@@ -59,8 +59,16 @@ public class Document {
         return title;
     }
 
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void soldOne(){
+        quantity--;
+    }
+
     public String toString(){
-        String doc =this.id + " " + this.title + " " + this.type + " " + this.price;
+        String doc =this.id + " " + this.title + " " + this.type + " " + this.price + " " + this.author;
         return doc;
     }
 }

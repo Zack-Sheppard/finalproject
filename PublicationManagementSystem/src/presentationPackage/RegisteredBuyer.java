@@ -1,9 +1,28 @@
 package presentationPackage;
 
-public class RegisteredBuyer extends Buyer {
+import domainPackage.*;
 
-	// ^ Implements promotion-observer
-	
-	// Un-subscribe
-	
+import java.util.ArrayList;
+
+public class RegisteredBuyer extends Buyer implements PromotionObserver {
+    private Subject hunter;
+    private ArrayList<Document> docs;
+
+    public RegisteredBuyer(Subject hunter){
+        this.hunter=hunter;
+        hunter.register(this);
+    }
+
+
+    @Override
+    public void update(ArrayList<Document> promo) {
+        this.docs=promo;
+    }
+
+
+    public void unsubscribe(){
+        hunter.unregister(this);
+        this.docs=null;
+    }
+
 }
