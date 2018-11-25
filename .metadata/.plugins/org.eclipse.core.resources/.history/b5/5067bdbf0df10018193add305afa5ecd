@@ -12,19 +12,26 @@ public class OperatorGUI {
 	private JFrame frame;
 
 	/**
-	 * Create the application.
+	 * Launch the application.
 	 */
-	public OperatorGUI() {
+	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					initialize();
-					frame.setVisible(true);
+					OperatorGUI window = new OperatorGUI();
+					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public OperatorGUI() {
+		initialize();
 	}
 
 	/**

@@ -15,6 +15,13 @@ public class SearchGUI {
 	private JTextField textField;
 
 	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		
+	}
+
+	/**
 	 * Create the application.
 	 */
 	public SearchGUI() {

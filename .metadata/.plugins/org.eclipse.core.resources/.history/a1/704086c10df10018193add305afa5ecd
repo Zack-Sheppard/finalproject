@@ -12,6 +12,13 @@ public class OperatorGUI {
 	private JFrame frame;
 
 	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		
+	}
+
+	/**
 	 * Create the application.
 	 */
 	public OperatorGUI() {
