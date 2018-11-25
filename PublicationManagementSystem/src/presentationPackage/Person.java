@@ -17,9 +17,5 @@ public class Person {
 		username = u;
 	}
 	
-	// Login functionality
-	public void login() {
-		
-	}
 	
 }

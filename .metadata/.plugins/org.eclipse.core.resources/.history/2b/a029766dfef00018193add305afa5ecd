@@ -1,0 +1,75 @@
+package storagePackage;
+
+import java.sql.*;
+
+public class Driver {
+	
+	// Driver to initialize and access database
+	
+	static Connection conn;
+	static PreparedStatement pStatement;
+	final String databaseName = "database";
+	
+	String userTable = "user";
+	
+	public Driver() {
+		
+	}
+		
+	public static void main(String[] args) {
+		
+		String connectInfo = "jdbc:mysql://localhost:3306/demo?autoReconnect=true&useSSL=false";
+		String user = "root";
+		String pword = "ShayanZack97";
+		
+		try {
+			conn = DriverManager.getConnection(connectInfo, user, pword);
+			
+			Statement s = conn.createStatement();
+			
+			ResultSet r = s.executeQuery("SELECT * FROM EMPLOYEES");
+			
+			while(r.next()){
+				System.out.println(r.getString("id"));
+			}
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	/*
+	
+	public char validateLogin(String u, String p) {
+		String sql = "SELECT * FROM " + userTable + " WHERE ID='" + username + "'";
+		ResultSet user;
+		try {
+			pStatement = jdbc_connection.prepareStatement(sql);
+			user = pStatement.executeQuery(sql);
+			if(user.next())							//User found
+			{
+				if(!password.equals(user.getString("PASSWORD"))) {
+					return null;
+				}
+				if(user.getString("TYPE").equals("P")) {
+					String prof = "P" + "Dr. " + user.getString("LASTNAME");
+					return prof;
+				}
+				else if(user.getString("TYPE").equals("S")) {
+					String stud = "S" + " " + user.getString("FIRSTNAME") 
+										+ " " + user.getString("LASTNAME")
+										+ " " + user.getString("ID");
+					return stud;
+				}
+			}
+		
+		} catch (SQLException e) { e.printStackTrace(); }
+		
+		return null;								//User not found
+	}
+	
+	*/
+	
+	
+}

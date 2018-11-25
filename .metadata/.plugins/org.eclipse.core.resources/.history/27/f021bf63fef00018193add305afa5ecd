@@ -1,0 +1,34 @@
+package domainPackage;
+
+import storagePackage.Driver;
+
+public class Login {
+	
+	// throws InvalidLoginException
+	
+	// Login class implementing singleton pattern
+	
+	// Connect to database controller
+	
+	static Login instance;
+	
+	public static Login getInstance() {
+		if(instance == null) {
+			instance = new Login();
+		}
+		return instance;
+	}
+
+	private Login() {
+		
+	}
+	
+	public char logInUser(String u, String p) {
+		// Accesses database with person credentials
+		
+		Driver d = new Driver();
+		
+		//return d.validateLogin(u, p);
+	}
+	
+}

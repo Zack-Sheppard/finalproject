@@ -1,49 +1,54 @@
 package storagePackage;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.sql.*;
 
-import presentationPackage.Person;
-
 public class Driver {
-
 	
-		
-	public static void main(String[] args) {
-		
-		// Login probably first thing
-		
-		// Pull up GUI first
-		
-		Person p = new Person();
-		p.login();
-		
-		String connectInfo = "jdbc:mysql://localhost:3306/demo?autoReconnect=true&useSSL=false";
-		String user = "root";
-		String pword = "ShayanZack97";
-		
+	// Driver to initialize and access database
+	
+	static Connection conn;
+	public PreparedStatement pStatement;
+	final String databaseName = "database";
+	
+	String connectInfo = "jdbc:mysql://localhost:3306/database?autoReconnect=true&useSSL=false";
+	String user = "root";
+	String pword = "ShayanZack97";
+	
+	String userTable = "user";
+	
+	public Driver() {
 		try {
-			Connection c = DriverManager.getConnection(connectInfo, user, pword);
-			
-			Statement s = c.createStatement();
-			
-			ResultSet r = s.executeQuery("SELECT * FROM EMPLOYEES");
-			
-			while(r.next()){
-				System.out.println(r.getString("id"));
-			}
+			conn = DriverManager.getConnection(connectInfo, user, pword);
 		}
 		catch(Exception e) {
 			e.printStackTrace();
 		}
-		
-		
-		
 	}
+	
+	public char validateLogin(String u, String p) {
+		String sql = "SELECT * FROM " + userTable + " WHERE ID='" + u + "'";
+		ResultSet user;
+		try {
+			pStatement = conn.prepareStatement(sql);
+			user = pStatement.executeQuery(sql);
+			if(user.next())							// User found
+			{
+				if(!p.equals(user.getString("PASSWORD"))) {
+					return 'I';
+				}
+				if(user.getString("PERSONTYPE").equals("O")) {
+					return 'O';
+				}
+				else if(user.getString("PERSONTYPE").equals("B")) {
+					return 'B';
+				}
+			}
+		
+		} catch (SQLException e) { e.printStackTrace(); }
+		
+		return ' ';								// User not found
+	}
+	
 	
 	
 	

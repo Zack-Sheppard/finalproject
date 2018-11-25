@@ -74,7 +74,27 @@ public class LoginGUI {
 	}
 	
 	public void validateLogIn() {
-		Login l = Login.getInstance();
+		Login l = Login.getInstance();		// Get single log-in instance
+		String u = textField.getText();		// Grab credentials from text fields
+		String p = textField_1.getText();
+		char type = l.logInUser(u, p);		// Try logging in with username/password
+		// (Returns person type if valid)
 		
+		// Switch case to start unique GUI
+		switch (type) {
+		case 'B':			// Buyer
+			System.out.println("This is a buyer");
+			Buyer b = new Buyer(u);
+			break;
+		case 'O':			// Operator
+			System.out.println("This is an operator");
+			break;
+		case 'I':			// Invalid
+			System.out.println("Incorrect password, please try again.");
+			break;
+		default:
+			System.err.println("Oops, something went wrong!");
+			break;
+		}
 	}
 }

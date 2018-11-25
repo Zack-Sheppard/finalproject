@@ -2,9 +2,10 @@ package presentationPackage;
 
 public class Buyer extends Person {
 
-	// Date joined? Not too much
+	public Buyer(String u) {
+		super(u);
+	}
 	
-	// Functions for storing buyer into database
-	// (Regardless if registered or not)
+	// One function to change subscription
 	
 }
