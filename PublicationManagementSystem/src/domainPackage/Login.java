@@ -1,5 +1,7 @@
 package domainPackage;
 
+import presentationPackage.Person;
+
 public class Login {
 	
 	// throws InvalidLoginException
@@ -18,6 +20,11 @@ public class Login {
 	}
 
 	private Login() {
+		
+	}
+	
+	public void logInUser(Person p) {
+		// Accesses database with person credentials
 		
 	}
 	

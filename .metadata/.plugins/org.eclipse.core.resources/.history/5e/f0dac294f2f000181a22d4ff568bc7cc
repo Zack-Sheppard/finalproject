@@ -1,0 +1,9 @@
+package domainPackage;
+
+import presentationPackage.Buyer;
+
+public class OrdinaryBuyer extends Buyer {
+
+	// Subscribe function, that's it
+	
+}
