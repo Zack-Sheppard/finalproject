@@ -48,34 +48,36 @@ public class GUI {
 	 */
 	private void initialize() {
 		Init = new JFrame();
-		Init.setBounds(100, 100, 350, 350);
+		Init.setBounds(100, 100, 350, 310);
 		Init.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Init.getContentPane().setLayout(new BorderLayout(0, 0));
 		
 		JPanel panel = new JPanel();
 		Init.getContentPane().add(panel, BorderLayout.CENTER);
-		panel.setLayout(new BorderLayout(0, 0));
 		
 		JButton btnLogin = new JButton("Log-In");
+		btnLogin.setBounds(101, 56, 135, 47);
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				logIn();
 			}
 		});
-		panel.add(btnLogin, BorderLayout.NORTH);
+		panel.setLayout(null);
+		panel.add(btnLogin);
 		
 		JButton btnSignup = new JButton("Sign-Up");
+		btnSignup.setBounds(101, 155, 135, 47);
 		btnSignup.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				signUp();
 			}
 		});
-		panel.add(btnSignup, BorderLayout.SOUTH);
+		panel.add(btnSignup);
 	}
 	
 	public void logIn() {
 		System.out.println("log-in");
-		
+		LoginGUI l = new LoginGUI();
 	}
 	
 	public void signUp() {
