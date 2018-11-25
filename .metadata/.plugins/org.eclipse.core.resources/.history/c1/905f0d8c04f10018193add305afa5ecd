@@ -1,0 +1,11 @@
+package presentationPackage;
+
+public class OrdinaryBuyer extends Buyer {
+
+	public OrdinaryBuyer(String u) {
+		super(u);
+	}
+	
+	// Subscribe function, that's it
+	
+}

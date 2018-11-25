@@ -1,0 +1,37 @@
+package storagePackage;
+
+import java.sql.*;
+
+public class Driver {
+		
+	public static void main(String[] args) {
+
+		// Driver to initialize and access database
+		
+		final Connection jdbc_connection;
+		final PreparedStatement pStatement;
+		final String databaseName = "database";
+		
+		String connectInfo = "jdbc:mysql://localhost:3306/demo?autoReconnect=true&useSSL=false";
+		String user = "root";
+		String pword = "ShayanZack97";
+		
+		try {
+			jdbc_connection = DriverManager.getConnection(connectInfo, user, pword);
+			
+			Statement s = c.createStatement();
+			
+			ResultSet r = s.executeQuery("SELECT * FROM EMPLOYEES");
+			
+			while(r.next()){
+				System.out.println(r.getString("id"));
+			}
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	
+}
