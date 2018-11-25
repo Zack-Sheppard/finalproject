@@ -1,10 +1,29 @@
 package presentationPackage;
 
+import domainPackage.Document;
+
 public class Buyer extends Person {
 
-	// Date joined? Not too much
-	
-	// Functions for storing buyer into database
-	// (Regardless if registered or not)
+    public Document searchDocument(){
+
+        return null;
+    }
+
+
+    public void placeAnOrder(){
+
+
+    }
+
+    public void makePayment(){
+
+
+    }
+
+
+    public void register(){
+
+    }
+
 	
 }
