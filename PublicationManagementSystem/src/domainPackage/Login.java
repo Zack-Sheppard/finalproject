@@ -23,7 +23,7 @@ public class Login {
 		
 	}
 	
-	public void logInUser(Person p) {
+	public void logInUser(String u, String p) {
 		// Accesses database with person credentials
 		
 	}
