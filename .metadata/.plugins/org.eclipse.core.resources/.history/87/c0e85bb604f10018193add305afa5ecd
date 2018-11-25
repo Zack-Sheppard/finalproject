@@ -1,0 +1,37 @@
+package presentationPackage;
+
+import domainPackage.Document;
+
+public class Buyer extends Person {
+
+<<<<<<< HEAD
+	public Buyer(String u) {
+		super(u);
+	}
+	
+	// One function to change subscription
+=======
+    public Document searchDocument(){
+
+        return null;
+    }
+
+
+    public void placeAnOrder(){
+
+
+    }
+
+    public void makePayment(){
+
+
+    }
+
+
+    public void register(){
+
+    }
+
+>>>>>>> fa57fc9f7a9f2394e845501a72e7458f94342185
+	
+}
