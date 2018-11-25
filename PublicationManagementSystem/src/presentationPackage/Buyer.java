@@ -1,5 +1,7 @@
 package presentationPackage;
 
+import domainPackage.Document;
+
 public class Buyer extends Person {
 
 	public Buyer(String u) {
@@ -7,5 +9,27 @@ public class Buyer extends Person {
 	}
 	
 	// One function to change subscription
+
+    public Document searchDocument(){
+
+        return null;
+    }
+
+
+    public void placeAnOrder(){
+
+
+    }
+
+    public void makePayment(){
+
+
+    }
+
+
+    public void register(){
+
+    }
+
 	
 }
