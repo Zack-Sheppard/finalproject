@@ -24,8 +24,9 @@ public class Driver {
 		String user = "root";
 		String pword = "ShayanZack97";
 		
+		
 		try {
-			Connection c = DriverManager.getConnection(connectInfo, user, pword);
+			Connection c = DriverManager.getConnection(connectInfo, "student", "student");
 			
 			Statement s = c.createStatement();
 			

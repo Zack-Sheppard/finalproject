@@ -20,18 +20,14 @@ public class Driver {
 		Person p = new Person();
 		p.login();
 		
-		String connectInfo = "jdbc:mysql://localhost:3306/demo?autoReconnect=true&useSSL=false";
-		String user = "root";
-		String pword = "ShayanZack97";
-		
 		try {
-			Connection c = DriverManager.getConnection(connectInfo, user, pword);
+			Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/demo", "student", "student");
 			
 			Statement s = c.createStatement();
 			
 			ResultSet r = s.executeQuery("SELECT * FROM EMPLOYEES");
 			
-			while(r.next()){
+			whilte(r.next()){
 				System.out.println(r.getString("id"));
 			}
 		}
