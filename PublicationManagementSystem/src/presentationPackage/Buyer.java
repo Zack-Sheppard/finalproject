@@ -2,6 +2,7 @@ package presentationPackage;
 
 import domainPackage.Document;
 
+import javax.swing.*;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,7 +14,8 @@ public class Buyer extends Person {
     private ShoppingCart cart;
 
 
-    public ResultSet searchDocumentbyTitle(String title){
+    public ResultSet searchDocumentbyTitle(){
+        String title= JOptionPane.showInputDialog("Search the title:");
             String sql = "SELECT * FROM Documents WHERE TITLE="+ title;
         try {
             statement = jdbc_connection.createStatement();
@@ -28,11 +30,16 @@ public class Buyer extends Person {
 
     public void placeOrder(){
         double total_price =0;
+        String message ="Would You Like to Buy";
         for (int i=0; i< cart.docs.size();i++){
             total_price+= cart.docs.get(i).getPrice();
+            message+=cart.docs.get(i).getTitle()+", ";
         }
-        Boolean result =true;
-        if (result){
+        message +="with total amount of $"+total_price+"?";
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog (null,
+                message,"Please Confirm",dialogButton);
+        if(dialogResult == JOptionPane.YES_OPTION){
             makePayment();
         }
     }
