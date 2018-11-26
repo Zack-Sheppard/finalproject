@@ -65,7 +65,7 @@ public class GUI {
 		panel.setLayout(null);
 		panel.add(btnLogin);
 		
-		JButton btnSignup = new JButton("Sign-Up");
+		JButton btnSignup = new JButton("Sign-In as Guest");
 		btnSignup.setBounds(101, 155, 135, 47);
 		btnSignup.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -81,8 +81,8 @@ public class GUI {
 	}
 	
 	public void signUp() {
-		System.out.println("sign-up");
-		
+		System.out.println("guest");
+		GuestGUI g = new GuestGUI();
 	}
 
 }
