@@ -16,8 +16,7 @@ public class Operator extends Person {
     public void addDoc(Document doc){
 
         String sql = "INSERT INTO " + tableName +
-                " VALUES ( " + doc.getId() + ", '" +
-                doc.getTitle() + "', " +
+                " VALUES ( " + doc.getTitle() + "', " +
                 doc.getType() + "', " +
                 doc.getGenre() + ", " +
                 doc.getPrice() + ", " +
@@ -41,8 +40,7 @@ public class Operator extends Person {
                 doc = statement.executeQuery(sql);
                 if(doc.next())
                 {
-                    return new Document(doc.getInt("ID"),
-                            doc.getString("TITLE"),
+                    return new Document(doc.getString("TITLE"),
                             doc.getString("TYPE"),
                             doc.getString("GENRE"),
                             doc.getDouble("PRICE"),

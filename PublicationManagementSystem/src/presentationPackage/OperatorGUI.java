@@ -1,12 +1,13 @@
 package presentationPackage;
 
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
+import domainPackage.Document;
 
 public class OperatorGUI {
 
@@ -69,22 +70,28 @@ public class OperatorGUI {
 	
 	public void addDoc() {
 		// Option pane with all document attributes:
-		
+		Document d = new Document("", "", "", 0.0, "");
+		DocumentGUI dg = new DocumentGUI(op, d, -1);
 	}
 	
 	public void removeDoc() {
 		// Enter Doc ID
-		JFrame f = new JFrame();   
-		
-	    int a = JOptionPane.showConfirmDialog(f,"Enter Doc ID");
-	    if(a==JOptionPane.YES_OPTION){
-	    	// delete
+		String s = JOptionPane.showInputDialog("Enter Document ID");
+        int a = Integer.parseInt(s);
+	    if(a >= 0) {
+	    	op.removeDoc(a);
 	    }
 	}
 	
 	public void editDoc() {
 		// Search first
-		
+		String s = JOptionPane.showInputDialog("Enter Document ID");
+        int a = Integer.parseInt(s);
+	    if(a >= 0) {
+	    	// Pull up similar pane to addDoc
+	    	Document d = op.selectDoc(a);
+	    	DocumentGUI dg = new DocumentGUI(op, d, a);
+	    }
 	}
 
 }

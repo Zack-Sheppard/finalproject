@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Document {
-    private int id;
     private String title;
     private boolean onSale;
     private double price;
@@ -14,19 +13,13 @@ public class Document {
     private String publisher;
     private int quantity;
 
-    public Document(int id, String title, String type, String genre, double price, String publisher){
-        this.id=id;
+    public Document(String title, String type, String genre, double price, String publisher){
         this.title=title;
         this.type=type;
         this.genre=genre;
         this.price=price;
         this.publisher=publisher;
 
-    }
-
-
-    public int getId() {
-        return id;
     }
 
     public String getPublisher() {
@@ -68,7 +61,7 @@ public class Document {
     }
 
     public String toString(){
-        String doc =this.id + " " + this.title + " " + this.type + " " + this.price + " " + this.author;
+        String doc = this.title + " " + this.type + " " + this.price + " " + this.author;
         return doc;
     }
 }

@@ -1,0 +1,45 @@
+package presentationPackage;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+
+import domainPackage.Document;
+
+public class DocumentGUI {
+
+	private JFrame frame;
+	private Document doc;
+	private Operator op;
+
+	/**
+	 * Create the application.
+	 */
+	public DocumentGUI(Operator o, Document d, int id) {
+		op = o;
+		if(id >= 0) {
+			op.removeDoc(id);
+		}
+		doc = d;
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					initialize();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 450, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+
+}
