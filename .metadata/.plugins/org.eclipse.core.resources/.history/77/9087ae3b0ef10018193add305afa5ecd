@@ -8,11 +8,6 @@ public class Operator extends Person {
     public Connection jdbc_connection;
     public Statement statement;
     public String tableName = "Documents";
-    
-    public Operator() {
-    	
-    }
-    
     public void addDoc(Document doc){
 
         String sql = "INSERT INTO " + tableName +

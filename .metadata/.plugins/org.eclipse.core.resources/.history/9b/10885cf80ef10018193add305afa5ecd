@@ -3,7 +3,6 @@ package presentationPackage;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -73,17 +72,10 @@ public class OperatorGUI {
 	}
 	
 	public void removeDoc() {
-		// Enter Doc ID
-		JFrame f = new JFrame();   
 		
-	    int a = JOptionPane.showConfirmDialog(f,"Enter Doc ID");
-	    if(a==JOptionPane.YES_OPTION){
-	    	// delete
-	    }
 	}
 	
 	public void editDoc() {
-		// Search first
 		
 	}
 

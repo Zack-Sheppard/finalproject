@@ -9,7 +9,6 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTextArea;
 import javax.swing.JLabel;
 import javax.swing.JScrollBar;
-import javax.swing.JList;
 
 public class GuestGUI {
 
@@ -70,25 +69,27 @@ public class GuestGUI {
 		frame.getContentPane().add(btnPlaceOrder);
 		
 		JLabel lblCart = new JLabel("Shopping Cart");
-		lblCart.setBounds(248, 234, 97, 16);
+		lblCart.setBounds(259, 259, 97, 16);
 		frame.getContentPane().add(lblCart);
+		
+		JTextArea textArea_1 = new JTextArea();
+		textArea_1.setEditable(false);
+		textArea_1.setBounds(38, 286, 517, 96);
+		frame.getContentPane().add(textArea_1);
 		
 		JButton btnPromotions = new JButton("Promotions");
 		btnPromotions.setEnabled(false);
 		btnPromotions.setBounds(248, 38, 97, 25);
 		frame.getContentPane().add(btnPromotions);
 		
+		JTextArea textArea = new JTextArea();
+		textArea.setEditable(false);
+		textArea.setBounds(38, 124, 517, 103);
+		frame.getContentPane().add(textArea);
+		
 		JLabel lblBooks = new JLabel("Books");
-		lblBooks.setBounds(278, 90, 47, 16);
+		lblBooks.setBounds(278, 98, 47, 16);
 		frame.getContentPane().add(lblBooks);
-		
-		JList list = new JList();
-		list.setBounds(64, 258, 468, 102);
-		frame.getContentPane().add(list);
-		
-		JList list_1 = new JList();
-		list_1.setBounds(64, 119, 468, 102);
-		frame.getContentPane().add(list_1);
 	}
 	
 	public void reg() {

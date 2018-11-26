@@ -75,11 +75,7 @@ public class OperatorGUI {
 	public void removeDoc() {
 		// Enter Doc ID
 		JFrame f = new JFrame();   
-		
-	    int a = JOptionPane.showConfirmDialog(f,"Enter Doc ID");
-	    if(a==JOptionPane.YES_OPTION){
-	    	// delete
-	    }
+	    String name = JOptionPane.showInputDialog(f,"Enter Doc ID");
 	}
 	
 	public void editDoc() {

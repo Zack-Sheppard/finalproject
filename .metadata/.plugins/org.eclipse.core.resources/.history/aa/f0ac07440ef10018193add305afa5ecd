@@ -88,8 +88,6 @@ public class LoginGUI {
 			break;
 		case 'O':			// Operator
 			System.out.println("This is an operator");
-			Operator o = new Operator();
-			OperatorGUI op = new OperatorGUI(o);
 			break;
 		case 'I':			// Invalid
 			System.out.println("Incorrect password, please try again.");

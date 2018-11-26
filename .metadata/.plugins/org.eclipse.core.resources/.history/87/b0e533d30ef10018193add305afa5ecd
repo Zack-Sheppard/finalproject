@@ -3,7 +3,6 @@ package presentationPackage;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -40,51 +39,16 @@ public class OperatorGUI {
 		frame.getContentPane().setLayout(null);
 		
 		JButton btnAddDocuments = new JButton("Add Document");
-		btnAddDocuments.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				addDoc();
-			}
-		});
 		btnAddDocuments.setBounds(76, 29, 140, 25);
 		frame.getContentPane().add(btnAddDocuments);
 		
 		JButton btnRemoveDocument = new JButton("Remove Document");
-		btnRemoveDocument.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				removeDoc();
-			}
-		});
 		btnRemoveDocument.setBounds(76, 67, 140, 25);
 		frame.getContentPane().add(btnRemoveDocument);
 		
 		JButton btnEditDocument = new JButton("Edit Document");
-		btnEditDocument.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				editDoc();
-			}
-		});
 		btnEditDocument.setBounds(76, 105, 140, 25);
 		frame.getContentPane().add(btnEditDocument);
-	}
-	
-	public void addDoc() {
-		// Option pane with all document attributes:
-		
-	}
-	
-	public void removeDoc() {
-		// Enter Doc ID
-		JFrame f = new JFrame();   
-		
-	    int a = JOptionPane.showConfirmDialog(f,"Enter Doc ID");
-	    if(a==JOptionPane.YES_OPTION){
-	    	// delete
-	    }
-	}
-	
-	public void editDoc() {
-		// Search first
-		
 	}
 
 }
