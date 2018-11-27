@@ -1,0 +1,193 @@
+package presentationPackage;
+
+import java.awt.EventQueue;
+import javax.swing.JFrame;
+import javax.swing.DefaultListModel;
+import javax.swing.DefaultListSelectionModel;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.awt.event.ActionEvent;
+import javax.swing.JTextArea;
+import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
+import storagePackage.Driver;
+import javax.swing.JLabel;
+import javax.swing.JScrollBar;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
+
+import domainPackage.Document;
+
+public class BuyerGUI {
+
+	private JFrame frame;
+	public Buyer buyer;
+	public boolean isRegistered;
+	public ArrayList<Document> searched;
+	
+	DefaultListModel<String> model;
+	JList<String> list;
+	ListSelectionModel select;
+	
+	Document selectedDoc;
+	
+	DefaultListModel<String> model1 = new DefaultListModel<>();
+	JList<String> list_1;
+	
+
+	/**
+	 * Create the application.
+	 */
+	public BuyerGUI(Buyer b, boolean reg) {
+		buyer = b;
+		isRegistered = reg;
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					initialize();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 609, 496);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JButton btnSearch = new JButton("Search");
+		btnSearch.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				search();
+			}
+		});
+		btnSearch.setBounds(97, 38, 97, 25);
+		frame.getContentPane().add(btnSearch);
+		
+		if(isRegistered) {
+			JButton btnUnregister = new JButton("Unregister");
+			btnUnregister.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					unreg();
+				}
+			});
+			btnUnregister.setBounds(388, 38, 97, 25);
+			frame.getContentPane().add(btnUnregister);
+		}
+		else {
+			JButton btnRegister = new JButton("Register");
+			btnRegister.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					reg();
+				}
+			});
+			btnRegister.setBounds(388, 38, 97, 25);
+			frame.getContentPane().add(btnRegister);
+		}
+		
+		
+		JButton btnAddToCart = new JButton("Add to Cart");
+		btnAddToCart.setEnabled(false);
+		btnAddToCart.setBounds(78, 395, 97, 25);
+		frame.getContentPane().add(btnAddToCart);
+		
+		JButton btnRemoveFromCart = new JButton("Remove from Cart");
+		btnRemoveFromCart.setEnabled(false);
+		btnRemoveFromCart.setBounds(227, 395, 137, 25);
+		frame.getContentPane().add(btnRemoveFromCart);
+		
+		JButton btnPlaceOrder = new JButton("Place Order");
+		btnPlaceOrder.setEnabled(false);
+		btnPlaceOrder.setBounds(426, 395, 106, 25);
+		frame.getContentPane().add(btnPlaceOrder);
+		
+		JLabel lblCart = new JLabel("Shopping Cart");
+		lblCart.setBounds(248, 234, 97, 16);
+		frame.getContentPane().add(lblCart);
+		
+		JButton btnPromotions = new JButton("Promotions");
+		if(!isRegistered) {
+			btnPromotions.setEnabled(false);
+		}
+		btnPromotions.setBounds(237, 38, 116, 25);
+		frame.getContentPane().add(btnPromotions);
+		
+		JLabel lblBooks = new JLabel("Books");
+		lblBooks.setBounds(278, 90, 47, 16);
+		frame.getContentPane().add(lblBooks);
+		
+		model = new DefaultListModel<String>();
+		list = new JList<String>( model );
+		list_1 = new JList<String>( model );
+		
+		JList<String> listArea = new JList<String>(model);
+		select = listArea.getSelectionModel();
+		select.addListSelectionListener(new ListSelectionHandler());
+		String width = "9999999999999999999999999999999999999";
+		listArea.setPrototypeCellValue(width);
+		listArea.setVisibleRowCount(20);
+		
+		list.setBounds(64, 258, 468, 102);
+		frame.getContentPane().add(list);
+		
+		list_1.setBounds(64, 119, 468, 102);
+		frame.getContentPane().add(list_1);
+		
+		
+	}
+	
+	public void reg() {
+		RegisterGUI r = new RegisterGUI();
+	}
+	
+	public void unreg() {
+		int a = JOptionPane.showConfirmDialog(null, "Are you sure?");
+		if(a == 0) {
+			// delete
+			Driver d = new Driver();
+			d.unregister(buyer.getUsername());
+			// close windows
+			frame.dispose();
+			System.exit(0);
+		}
+	}
+	
+	public void getPromotions() {
+		
+	}
+	
+	public void search() {
+		String s = JOptionPane.showInputDialog("Enter Book Title");
+	    if(s != null) {
+	    	Driver d = new Driver();
+			searched = d.search(s);
+	    }
+		for(int i = 0; i < searched.size(); i++) {
+			model.addElement(searched.get(i).toString());
+		}
+		
+	}
+	
+	public class ListSelectionHandler implements ListSelectionListener {
+	    public void valueChanged(ListSelectionEvent e) {
+	        if(e.getValueIsAdjusting()) {
+	        	DefaultListSelectionModel model 
+						= (DefaultListSelectionModel) e.getSource();
+	        	int i = model.getMaxSelectionIndex();
+	        	selectedDoc = searched.get(i);
+	        }
+	    }
+	}
+	
+}

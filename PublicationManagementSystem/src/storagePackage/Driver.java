@@ -1,6 +1,8 @@
 package storagePackage;
 
 import java.sql.*;
+import java.util.ArrayList;
+import domainPackage.Document;
 
 public class Driver {
 	
@@ -15,6 +17,7 @@ public class Driver {
 	String pword = "ShayanZack97";
 	
 	String userTable = "user";
+	String docTable = "document";
 	
 	public Driver() {
 		try {
@@ -60,6 +63,44 @@ public class Driver {
 		{
 			e.printStackTrace();
 		}
+	}
+	
+	public void unregister(String u) {
+		String sql = "DELETE FROM "+userTable+" WHERE username ='"+ u + "'";
+        try{
+            pStatement = conn.prepareStatement(sql);
+            pStatement.executeUpdate(sql);
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+        }
+	}
+	
+	public ArrayList<Document> search(String title){
+		 String sql = "SELECT * FROM " + docTable + " WHERE TITLE='" + title + "'";
+         ResultSet doc;
+         ArrayList<Document> docs = new ArrayList<Document>();
+         try {
+             pStatement = conn.prepareStatement(sql);
+             doc = pStatement.executeQuery(sql);
+             if(doc.next())
+             {
+                 Document d = new Document(doc.getString("TITLE"),
+                 		doc.getBoolean("ONSALE"),
+                 		doc.getDouble("PRICE"),
+                         doc.getString("PUBLISHER"),
+                         doc.getString("TYPE"),
+                         doc.getString("GENRE"),
+                         doc.getString("AUTHOR")
+                         );
+                 docs.add(d);
+             }
+             return docs;
+
+         } catch (SQLException e) { e.printStackTrace(); }
+
+         return null;
 	}
 	
 	
