@@ -36,7 +36,7 @@ public class OperatorGUI {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 318, 206);
+		frame.setBounds(100, 100, 329, 208);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -46,7 +46,7 @@ public class OperatorGUI {
 				addDoc();
 			}
 		});
-		btnAddDocuments.setBounds(76, 29, 140, 25);
+		btnAddDocuments.setBounds(76, 29, 152, 25);
 		frame.getContentPane().add(btnAddDocuments);
 		
 		JButton btnRemoveDocument = new JButton("Remove Document");
@@ -55,7 +55,7 @@ public class OperatorGUI {
 				removeDoc();
 			}
 		});
-		btnRemoveDocument.setBounds(76, 67, 140, 25);
+		btnRemoveDocument.setBounds(76, 67, 152, 25);
 		frame.getContentPane().add(btnRemoveDocument);
 		
 		JButton btnEditDocument = new JButton("Edit Document");
@@ -64,13 +64,13 @@ public class OperatorGUI {
 				editDoc();
 			}
 		});
-		btnEditDocument.setBounds(76, 105, 140, 25);
+		btnEditDocument.setBounds(76, 105, 152, 25);
 		frame.getContentPane().add(btnEditDocument);
 	}
 	
 	public void addDoc() {
 		// Option pane with all document attributes:
-		Document d = new Document("", "", "", 0.0, "");
+		Document d = new Document("", false, 0.0, "", "", "", "");
 		DocumentGUI dg = new DocumentGUI(op, d, -1);
 	}
 	
@@ -93,5 +93,4 @@ public class OperatorGUI {
 	    	DocumentGUI dg = new DocumentGUI(op, d, a);
 	    }
 	}
-
 }

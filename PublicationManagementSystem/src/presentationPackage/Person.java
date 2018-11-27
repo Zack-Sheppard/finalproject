@@ -17,5 +17,9 @@ public class Person {
 		username = u;
 	}
 	
+	public String getUsername(){
+		return username;
+	}
+	
 	
 }

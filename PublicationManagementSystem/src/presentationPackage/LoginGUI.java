@@ -42,7 +42,7 @@ public class LoginGUI {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 363, 292);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JLabel lblUsername = new JLabel("Username");
@@ -85,6 +85,7 @@ public class LoginGUI {
 		case 'B':			// Buyer
 			System.out.println("This is a buyer");
 			Buyer b = new Buyer(u);
+			BuyerGUI bg = new BuyerGUI(b, true);
 			break;
 		case 'O':			// Operator
 			System.out.println("This is an operator");

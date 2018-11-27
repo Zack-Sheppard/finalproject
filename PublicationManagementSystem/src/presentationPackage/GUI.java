@@ -82,7 +82,7 @@ public class GUI {
 	
 	public void signUp() {
 		System.out.println("guest");
-		GuestGUI g = new GuestGUI();
+		BuyerGUI g = new BuyerGUI(null, false);
 	}
 
 }

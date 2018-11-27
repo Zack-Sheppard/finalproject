@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="presentationPackage.Person"/>
+<fullyQualifiedTypeName name="domainPackage.Login"/>
+<fullyQualifiedTypeName name="storagePackage.Driver"/>
+<fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="domainPackage.Document"/>
 </qualifiedTypeNameHistroy>

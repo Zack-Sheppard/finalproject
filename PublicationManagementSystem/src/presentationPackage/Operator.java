@@ -7,20 +7,32 @@ import java.sql.*;
 public class Operator extends Person {
     public Connection jdbc_connection;
     public Statement statement;
-    public String tableName = "Documents";
+    public String tableName = "document";
+    
+    String connectInfo = "jdbc:mysql://localhost:3306/database?autoReconnect=true&useSSL=false";
+	String user = "root";
+	String pword = "ShayanZack97";
     
     public Operator() {
-    	
+    	try {
+    		jdbc_connection = DriverManager.getConnection(connectInfo, user, pword);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
     }
     
     public void addDoc(Document doc){
 
-        String sql = "INSERT INTO " + tableName +
-                " VALUES ( " + doc.getTitle() + "', " +
-                doc.getType() + "', " +
-                doc.getGenre() + ", " +
-                doc.getPrice() + ", " +
-                doc.getPublisher() + ");";
+        String sql = "INSERT INTO " + tableName 
+        		+ " (title,onsale,price,publisher,type,genre,author)" +
+                " VALUES ('" + doc.getTitle() + "', " +
+                doc.isOnSale() + ", " +
+                doc.getPrice() + ",'" +
+                doc.getPublisher() + "','" +
+                doc.getType() + "','" +
+                doc.getGenre() + "','" +
+                doc.getAuthor() + "');";
         try{
             statement = jdbc_connection.createStatement();
             statement.executeUpdate(sql);
@@ -41,10 +53,13 @@ public class Operator extends Person {
                 if(doc.next())
                 {
                     return new Document(doc.getString("TITLE"),
+                    		doc.getBoolean("ONSALE"),
+                    		doc.getDouble("PRICE"),
+                            doc.getString("PUBLISHER"),
                             doc.getString("TYPE"),
                             doc.getString("GENRE"),
-                            doc.getDouble("PRICE"),
-                            doc.getString("PUBLISHER"));
+                            doc.getString("AUTHOR")
+                            );
                 }
 
             } catch (SQLException e) { e.printStackTrace(); }

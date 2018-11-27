@@ -7,19 +7,21 @@ public class Document {
     private String title;
     private boolean onSale;
     private double price;
-    private Author author;
+    private String author;
     private String type;
     private String genre;
     private String publisher;
     private int quantity;
 
-    public Document(String title, String type, String genre, double price, String publisher){
+    public Document(String title,  boolean sale, double price, 
+    		String publisher, String type, String genre, String author){
         this.title=title;
-        this.type=type;
-        this.genre=genre;
+        this.onSale = sale;
         this.price=price;
         this.publisher=publisher;
-
+        this.type=type;
+        this.genre=genre;
+        this.author = author;
     }
 
     public String getPublisher() {
@@ -35,7 +37,7 @@ public class Document {
     }
 
 
-    public Author getAuthor() {
+    public String getAuthor() {
         return author;
     }
 
