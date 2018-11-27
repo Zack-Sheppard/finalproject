@@ -250,7 +250,7 @@ public class BuyerGUI {
 	public void checkout() {
 		String books = "";
 		for(int i = 0; i < cart.size(); i++) {
-			books += cart.get(i).toString() + " ";
+			books += cart.get(i).toString();
 		}
 		int a = JOptionPane.showConfirmDialog(null, 
 				"Buy " + books + "?");
@@ -260,8 +260,8 @@ public class BuyerGUI {
 			for(int i = 0; i < cart.size(); i++) {
 				d.removeDoc(cart.get(i).toString());
 			}
+			
 		}
-		frame.dispose();
 	}
 	
 }

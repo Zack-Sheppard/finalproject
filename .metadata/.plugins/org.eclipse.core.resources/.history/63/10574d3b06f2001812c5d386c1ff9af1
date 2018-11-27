@@ -75,7 +75,6 @@ public class RegisterGUI {
 		String u = textField.getText();
 		String p = textField_1.getText();
 		d.register(u, p);
-		frame.dispose();
 	}
 
 }

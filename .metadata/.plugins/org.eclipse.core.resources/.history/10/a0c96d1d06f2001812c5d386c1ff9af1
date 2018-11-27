@@ -249,19 +249,13 @@ public class BuyerGUI {
 	
 	public void checkout() {
 		String books = "";
-		for(int i = 0; i < cart.size(); i++) {
-			books += cart.get(i).toString() + " ";
-		}
+		//for
 		int a = JOptionPane.showConfirmDialog(null, 
 				"Buy " + books + "?");
 		if(a == 0) {
 			// delete book(s) from database
-			Driver d = new Driver();
-			for(int i = 0; i < cart.size(); i++) {
-				d.removeDoc(cart.get(i).toString());
-			}
+			
 		}
-		frame.dispose();
 	}
 	
 }

@@ -106,8 +106,8 @@ public class Driver {
 	public void removeDoc(String title) {
 		 String sql = "DELETE FROM "+docTable+" WHERE title = '"+title + "'";
 	        try{
-	        	pStatement = conn.prepareStatement(sql);
-	            pStatement.executeUpdate(sql);
+	            statement = jdbc_connection.createStatement();
+	            statement.executeUpdate(sql);
 	        }
 	        catch(SQLException e)
 	        {
