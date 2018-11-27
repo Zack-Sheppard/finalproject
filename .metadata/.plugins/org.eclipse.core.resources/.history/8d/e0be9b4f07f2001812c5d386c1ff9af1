@@ -269,4 +269,8 @@ public class BuyerGUI {
 		frame.dispose();
 	}
 	
+	public void getPromotions() {
+		
+	}
+	
 }

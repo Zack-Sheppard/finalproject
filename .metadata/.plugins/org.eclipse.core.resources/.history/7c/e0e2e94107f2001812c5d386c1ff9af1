@@ -137,11 +137,6 @@ public class BuyerGUI {
 		frame.getContentPane().add(lblCart);
 		
 		JButton btnPromotions = new JButton("Promotions");
-		btnPromotions.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				getPromotions();
-			}
-		});
 		if(!isRegistered) {
 			btnPromotions.setEnabled(false);
 		}

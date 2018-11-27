@@ -139,7 +139,7 @@ public class BuyerGUI {
 		JButton btnPromotions = new JButton("Promotions");
 		btnPromotions.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				getPromotions();
+				
 			}
 		});
 		if(!isRegistered) {
